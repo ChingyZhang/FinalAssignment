@@ -1,0 +1,10 @@
+C:\Users\chingy\Desktop\cms\cms.BLL\bin\Debug\cms.BLL.dll
+C:\Users\chingy\Desktop\cms\cms.BLL\bin\Debug\cms.BLL.pdb
+C:\Users\chingy\Desktop\cms\cms.BLL\obj\Debug\cms.BLL.csprojResolveAssemblyReference.cache
+C:\Users\chingy\Desktop\cms\cms.BLL\obj\Debug\cms.BLL.dll
+C:\Users\chingy\Desktop\cms\cms.BLL\obj\Debug\cms.BLL.pdb
+C:\Users\chingy\Desktop\cms\cms.BLL\bin\Debug\CMS.DAL.dll
+C:\Users\chingy\Desktop\cms\cms.BLL\bin\Debug\EntityFramework.dll
+C:\Users\chingy\Desktop\cms\cms.BLL\bin\Debug\CMS.DAL.pdb
+C:\Users\chingy\Desktop\cms\cms.BLL\bin\Debug\EntityFramework.xml
+C:\Users\chingy\Desktop\cms\cms.BLL\bin\Debug\zh-Hans\EntityFramework.resources.dll

@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "AddUser";       
+}
+
+@model CMS.DAL.Model.UserModel
+
+
+@using (Ajax.BeginForm("AddUser", "User", new AjaxOptions { HttpMethod = "Post", OnSuccess = "a" }))
+{
+    <table>
+        <tr>
+            <td>用户名</td>
+            <td>@Html.TextBoxFor(x => x.u_account)</td>
+        </tr>
+        <tr>
+            <td>用户密码</td>
+            <td>@Html.TextBoxFor(x => x.u_password)</td>
+        </tr>
+        <tr>
+            <td>性别</td>
+            <td>@Html.TextBoxFor(x => x.u_gender)</td>
+        </tr>
+        <tr>
+            <td>学号</td>
+            <td>@Html.TextBoxFor(x => x.u_stucentid)</td>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td>@Html.TextBoxFor(x => x.u_stucentid)</td>
+        </tr>
+        <tr>
+            <td>政治面貌</td>
+            <td>@Html.TextBoxFor(x => x.u_political)</td>
+        </tr>
+        <tr>
+            <td>寝室号</td>
+            <td>@Html.TextBoxFor(x => x.u_badroom)</td>
+        </tr>
+        <tr>
+            <td>电话</td>
+            <td>@Html.TextBoxFor(x => x.u_phone)</td>
+        </tr>
+        <tr>
+            <td>QQ</td>
+            <td>@Html.TextBoxFor(x => x.u_qq)</td>
+        </tr>
+        <tr>
+            <td>出生年月</td>
+            <td>@Html.TextBoxFor(x => x.u_birthday)</td>
+        </tr>
+        <tr>
+            <td>籍贯</td>
+            <td>@Html.TextBoxFor(x => x.u_hometown)</td>
+        </tr>
+        <tr>
+            <td>民族</td>
+            <td>@Html.TextBoxFor(x => x.u_nation)</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="提交" /></td>
+            <td>
+                <input type="reset" value="重置" /></td>
+        </tr>
+
+    </table>
+}
+
+<script type="text/javascript">
+    function a(data) {
+        alert("添加好了" + data.get_data);
+        //$("#right").html(data.)
+    }
+
+</script>

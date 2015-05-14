@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Index";    
+}
+
+<h2>Index</h2>
+
+<div style="float: left; width: 200px; margin-top: 5px; margin-left: 5px; border: 1px; background-color: yellow;">
+    <div style="margin-left: 80px;">
+        <input type="button" value="用户类型管理" onclick="ModifyHtml('ModifyUserType')" />
+    </div>
+    <div style="margin-left: 80px;">
+        <input type="button" value="增加用户" onclick="ModifyHtml('AddUser')" />
+    </div>
+    <div style="margin-left: 80px;">
+        <input type="button" value="修改用户" onclick="" />
+    </div>
+    <div style="margin-left: 80px;">
+        <input type="button" value="查询用户" onclick="" />
+    </div>
+</div>
+<div id="right" style="float: right; width: 730px; background-color:rgba(250, 245, 3, 0.45);"></div>
+
+<script type="text/javascript">
+    function ModifyHtml(controllerName) {
+        $.ajax({
+            type: "Get",
+            data: "",
+            url: "/User/"+controllerName,
+            success: function (data) {                
+                $("#right").html(data);
+            },
+            error: function (data) {
+                alert("获取失败");
+            }
+        });
+    }
+</script>

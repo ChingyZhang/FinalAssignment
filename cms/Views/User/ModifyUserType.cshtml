@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "ModifyUserType";
+}
+
+<h2>ModifyUserType</h2>
+
+<input type="button" value="添加新类型" onclick="AddUserTypeHtml()" />
+
+<div id="AddUserTypeDiv">
+   @* <input type="text" id="UserTypeName" /><input type="button" value="提交" onclick="AddUserType()" />*@
+</div>
+
+<table>
+    <tr>
+        <th id="das" abc="你是傻子">标题</th>
+        <th>操作</th>
+    </tr>
+
+    @{
+        List<CMS.DAL.DB.usertitle> typeList = ViewData["typeList"] as List<CMS.DAL.DB.usertitle>;
+        if (typeList == null || typeList.Count() == 0)
+        {
+        <tr>
+            <td rowspan="2">无数据</td>
+        </tr>
+        }
+        else
+        {
+            foreach (CMS.DAL.DB.usertitle userType in typeList)
+            {
+        <tr>
+            <td>@userType.ut_name</td>
+            <td>
+                <input type="submit" value="删除" onclick="RemoveUserType('@userType.ut_id')" /></td>
+        </tr>
+            }
+        }
+    }
+</table>
+<script type="text/javascript">    
+    alert( $("#das").attr("abc"));
+
+    function AddUserTypeHtml()
+    {
+        var divHtml="<input type=\"text\" id=\"UserTypeName\" /><input type=\"button\" value=\"提交\" onclick=\"AddUserType()\" />"        
+        $("#AddUserTypeDiv").html(divHtml);
+    }
+    function AddUserType(){
+        var typeName=$("#UserTypeName").val();        
+        if (typeName==null||typeName=="") {
+            alert("请输入类型名称");
+            return;
+        }        
+        $.ajax({
+            type:"Post",
+            data:{typeName:typeName},
+            url:"/User/AddUserType",
+            success:function(data){
+                alert(data.Flag);
+                $("#AddUserTypeDiv").html("");
+            },
+            error:function(data){
+                alert("ajax处理出错");
+            }            
+        });
+    }
+    function RemoveUserType(typeID)
+    {
+        $.ajax({
+            type: "Post",
+            data: {"typeID":typeID},
+            url: "/User/RemoveUserType",
+            success: function (data) {
+                var result = JSON.parse(data);
+                alert(result.Flag);                
+            }
+        });            
+    }
+</script>
