@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CMSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CMSModelStoreContainer">
+    <EntitySet Name="album" EntityType="CMSModel.Store.album" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="class" EntityType="CMSModel.Store.class" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="images" EntityType="CMSModel.Store.images" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="journal" EntityType="CMSModel.Store.journal" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="journaltype" EntityType="CMSModel.Store.journaltype" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="leaveword" EntityType="CMSModel.Store.leaveword" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="resources" EntityType="CMSModel.Store.resources" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="users" EntityType="CMSModel.Store.users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="usertitle" EntityType="CMSModel.Store.usertitle" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_LEAVEWOR_REFERENCE_USERS" Association="CMSModel.Store.FK_LEAVEWOR_REFERENCE_USERS">
+      <End Role="users" EntitySet="users" />
+      <End Role="leaveword" EntitySet="leaveword" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="album">
+    <Key>
+      <PropertyRef Name="a_id" />
+    </Key>
+    <Property Name="a_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="u_id" Type="int" />
+    <Property Name="a_name" Type="varchar" MaxLength="45" />
+    <Property Name="a_public" Type="tinyint" />
+    <Property Name="a_delete" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="class">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="i_id" Type="int" />
+    <Property Name="c_introduce" Type="text" />
+    <Property Name="c_counselor" Type="varchar" MaxLength="45" />
+    <Property Name="c_classname" Type="varchar" MaxLength="100" />
+    <Property Name="c_school" Type="varchar" MaxLength="45" />
+    <Property Name="c_college" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="images">
+    <Key>
+      <PropertyRef Name="i_id" />
+    </Key>
+    <Property Name="i_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="c_id" Type="int" />
+    <Property Name="a_id" Type="int" />
+    <Property Name="j_id" Type="int" />
+    <Property Name="i_name" Type="varchar" MaxLength="45" />
+    <Property Name="i_url" Type="varchar" MaxLength="100" />
+    <Property Name="i_introduce" Type="text" />
+  </EntityType>
+  <EntityType Name="journal">
+    <Key>
+      <PropertyRef Name="j_id" />
+    </Key>
+    <Property Name="j_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="jt_id" Type="int" />
+    <Property Name="u_id" Type="int" />
+    <Property Name="j_title" Type="varchar" MaxLength="100" />
+    <Property Name="j_content" Type="text" />
+    <Property Name="j_date" Type="datetime" />
+    <Property Name="j_delete" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="journaltype">
+    <Key>
+      <PropertyRef Name="jt_id" />
+    </Key>
+    <Property Name="jt_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="jt_name" Type="varchar" MaxLength="45" />
+    <Property Name="jt_delete" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="leaveword">
+    <Key>
+      <PropertyRef Name="lw_id" />
+    </Key>
+    <Property Name="lw_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="u_id" Type="int" />
+    <Property Name="lw_contetn" Type="text" />
+    <Property Name="lw_time" Type="datetime" />
+    <Property Name="lw_read" Type="tinyint" />
+    <Property Name="lw_getperson" Type="int" />
+    <Property Name="lw_pid" Type="int" />
+  </EntityType>
+  <EntityType Name="resources">
+    <Key>
+      <PropertyRef Name="r_id" />
+    </Key>
+    <Property Name="r_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="u_id" Type="int" />
+    <Property Name="r_url" Type="varchar" MaxLength="100" />
+    <Property Name="r_date" Type="datetime" />
+    <Property Name="r_title" Type="varchar" MaxLength="100" />
+    <Property Name="r_introduce" Type="text" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="u_id" />
+    </Key>
+    <Property Name="u_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ut_id" Type="int" />
+    <Property Name="u_account" Type="varchar" MaxLength="45" />
+    <Property Name="u_password" Type="char" MaxLength="32" />
+    <Property Name="u_gender" Type="varchar" MaxLength="2" />
+    <Property Name="u_stucentid" Type="varchar" MaxLength="25" />
+    <Property Name="u_name" Type="varchar" MaxLength="45" />
+    <Property Name="u_political" Type="varchar" MaxLength="45" />
+    <Property Name="u_badroom" Type="varchar" MaxLength="25" />
+    <Property Name="u_phone" Type="varchar" MaxLength="25" />
+    <Property Name="u_qq" Type="varchar" MaxLength="25" />
+    <Property Name="u_birthday" Type="datetime" />
+    <Property Name="u_hometown" Type="varchar" MaxLength="55" />
+    <Property Name="u_nation" Type="varchar" MaxLength="45" />
+    <Property Name="u_lastlogintime" Type="datetime" />
+    <Property Name="u_lastloginip" Type="varchar" MaxLength="15" />
+    <Property Name="u_logintime" Type="int" />
+  </EntityType>
+  <EntityType Name="usertitle">
+    <Key>
+      <PropertyRef Name="ut_id" />
+    </Key>
+    <Property Name="ut_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ut_name" Type="varchar" MaxLength="45" />
+    <Property Name="ut_detele" Type="tinyint" />
+  </EntityType>
+  <Association Name="FK_LEAVEWOR_REFERENCE_USERS">
+    <End Role="users" Type="CMSModel.Store.users" Multiplicity="0..1" />
+    <End Role="leaveword" Type="CMSModel.Store.leaveword" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="u_id" />
+      </Principal>
+      <Dependent Role="leaveword">
+        <PropertyRef Name="u_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

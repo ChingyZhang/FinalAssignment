@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CMSModelStoreContainer" CdmEntityContainer="CMSEntities">
+    <EntitySetMapping Name="album">
+      <EntityTypeMapping TypeName="CMSModel.album">
+        <MappingFragment StoreEntitySet="album">
+          <ScalarProperty Name="a_id" ColumnName="a_id" />
+          <ScalarProperty Name="u_id" ColumnName="u_id" />
+          <ScalarProperty Name="a_name" ColumnName="a_name" />
+          <ScalarProperty Name="a_public" ColumnName="a_public" />
+          <ScalarProperty Name="a_delete" ColumnName="a_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="class">
+      <EntityTypeMapping TypeName="CMSModel.class">
+        <MappingFragment StoreEntitySet="class">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="i_id" ColumnName="i_id" />
+          <ScalarProperty Name="c_introduce" ColumnName="c_introduce" />
+          <ScalarProperty Name="c_counselor" ColumnName="c_counselor" />
+          <ScalarProperty Name="c_classname" ColumnName="c_classname" />
+          <ScalarProperty Name="c_school" ColumnName="c_school" />
+          <ScalarProperty Name="c_college" ColumnName="c_college" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="images">
+      <EntityTypeMapping TypeName="CMSModel.images">
+        <MappingFragment StoreEntitySet="images">
+          <ScalarProperty Name="i_id" ColumnName="i_id" />
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="a_id" ColumnName="a_id" />
+          <ScalarProperty Name="j_id" ColumnName="j_id" />
+          <ScalarProperty Name="i_name" ColumnName="i_name" />
+          <ScalarProperty Name="i_url" ColumnName="i_url" />
+          <ScalarProperty Name="i_introduce" ColumnName="i_introduce" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="journal">
+      <EntityTypeMapping TypeName="CMSModel.journal">
+        <MappingFragment StoreEntitySet="journal">
+          <ScalarProperty Name="j_id" ColumnName="j_id" />
+          <ScalarProperty Name="jt_id" ColumnName="jt_id" />
+          <ScalarProperty Name="u_id" ColumnName="u_id" />
+          <ScalarProperty Name="j_title" ColumnName="j_title" />
+          <ScalarProperty Name="j_content" ColumnName="j_content" />
+          <ScalarProperty Name="j_date" ColumnName="j_date" />
+          <ScalarProperty Name="j_delete" ColumnName="j_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="journaltype">
+      <EntityTypeMapping TypeName="CMSModel.journaltype">
+        <MappingFragment StoreEntitySet="journaltype">
+          <ScalarProperty Name="jt_id" ColumnName="jt_id" />
+          <ScalarProperty Name="jt_name" ColumnName="jt_name" />
+          <ScalarProperty Name="jt_delete" ColumnName="jt_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="leaveword">
+      <EntityTypeMapping TypeName="CMSModel.leaveword">
+        <MappingFragment StoreEntitySet="leaveword">
+          <ScalarProperty Name="lw_id" ColumnName="lw_id" />
+          <ScalarProperty Name="u_id" ColumnName="u_id" />
+          <ScalarProperty Name="lw_contetn" ColumnName="lw_contetn" />
+          <ScalarProperty Name="lw_time" ColumnName="lw_time" />
+          <ScalarProperty Name="lw_read" ColumnName="lw_read" />
+          <ScalarProperty Name="lw_getperson" ColumnName="lw_getperson" />
+          <ScalarProperty Name="lw_pid" ColumnName="lw_pid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="resources">
+      <EntityTypeMapping TypeName="CMSModel.resources">
+        <MappingFragment StoreEntitySet="resources">
+          <ScalarProperty Name="r_id" ColumnName="r_id" />
+          <ScalarProperty Name="u_id" ColumnName="u_id" />
+          <ScalarProperty Name="r_url" ColumnName="r_url" />
+          <ScalarProperty Name="r_date" ColumnName="r_date" />
+          <ScalarProperty Name="r_title" ColumnName="r_title" />
+          <ScalarProperty Name="r_introduce" ColumnName="r_introduce" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="CMSModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="u_id" ColumnName="u_id" />
+          <ScalarProperty Name="ut_id" ColumnName="ut_id" />
+          <ScalarProperty Name="u_account" ColumnName="u_account" />
+          <ScalarProperty Name="u_password" ColumnName="u_password" />
+          <ScalarProperty Name="u_gender" ColumnName="u_gender" />
+          <ScalarProperty Name="u_stucentid" ColumnName="u_stucentid" />
+          <ScalarProperty Name="u_name" ColumnName="u_name" />
+          <ScalarProperty Name="u_political" ColumnName="u_political" />
+          <ScalarProperty Name="u_badroom" ColumnName="u_badroom" />
+          <ScalarProperty Name="u_phone" ColumnName="u_phone" />
+          <ScalarProperty Name="u_qq" ColumnName="u_qq" />
+          <ScalarProperty Name="u_birthday" ColumnName="u_birthday" />
+          <ScalarProperty Name="u_hometown" ColumnName="u_hometown" />
+          <ScalarProperty Name="u_nation" ColumnName="u_nation" />
+          <ScalarProperty Name="u_lastlogintime" ColumnName="u_lastlogintime" />
+          <ScalarProperty Name="u_lastloginip" ColumnName="u_lastloginip" />
+          <ScalarProperty Name="u_logintime" ColumnName="u_logintime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usertitle">
+      <EntityTypeMapping TypeName="CMSModel.usertitle">
+        <MappingFragment StoreEntitySet="usertitle">
+          <ScalarProperty Name="ut_id" ColumnName="ut_id" />
+          <ScalarProperty Name="ut_name" ColumnName="ut_name" />
+          <ScalarProperty Name="ut_detele" ColumnName="ut_detele" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6124A610-E4D0-48E4-8F61-6555915D33F6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CMS.DAL</RootNamespace>
+    <AssemblyName>CMS.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="DB\album.cs">
+      <DependentUpon>CMSDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\class.cs">
+      <DependentUpon>CMSDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\CMSDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMSDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\CMSDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMSDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\CMSDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMSDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DB\images.cs">
+      <DependentUpon>CMSDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\journal.cs">
+      <DependentUpon>CMSDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\journaltype.cs">
+      <DependentUpon>CMSDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\leaveword.cs">
+      <DependentUpon>CMSDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\resources.cs">
+      <DependentUpon>CMSDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\users.cs">
+      <DependentUpon>CMSDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\usertitle.cs">
+      <DependentUpon>CMSDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="DB\CMSDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CMSDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
+    <None Include="DB\CMSDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CMSDB.edmx</DependentUpon>
+      <LastGenOutput>CMSDB.Context.cs</LastGenOutput>
+    </None>
+    <None Include="DB\CMSDB.edmx.diagram">
+      <DependentUpon>CMSDB.edmx</DependentUpon>
+    </None>
+    <None Include="DB\CMSDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CMSDB.edmx</DependentUpon>
+      <LastGenOutput>CMSDB.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

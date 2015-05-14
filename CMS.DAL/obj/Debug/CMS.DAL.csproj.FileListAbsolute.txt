@@ -1,0 +1,9 @@
+C:\Users\chingy\Desktop\cms\CMS.DAL\bin\Debug\CMS.DAL.dll.config
+C:\Users\chingy\Desktop\cms\CMS.DAL\bin\Debug\CMS.DAL.dll
+C:\Users\chingy\Desktop\cms\CMS.DAL\bin\Debug\CMS.DAL.pdb
+C:\Users\chingy\Desktop\cms\CMS.DAL\bin\Debug\EntityFramework.dll
+C:\Users\chingy\Desktop\cms\CMS.DAL\bin\Debug\EntityFramework.xml
+C:\Users\chingy\Desktop\cms\CMS.DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\chingy\Desktop\cms\CMS.DAL\obj\Debug\CMS.DAL.dll
+C:\Users\chingy\Desktop\cms\CMS.DAL\obj\Debug\CMS.DAL.pdb
+C:\Users\chingy\Desktop\cms\CMS.DAL\obj\Debug\CMS.DAL.csprojResolveAssemblyReference.cache

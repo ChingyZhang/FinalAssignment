@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CMSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="CMSModelStoreContainer">
+          <EntitySet Name="album" EntityType="CMSModel.Store.album" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="class" EntityType="CMSModel.Store.class" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="images" EntityType="CMSModel.Store.images" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="journal" EntityType="CMSModel.Store.journal" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="journaltype" EntityType="CMSModel.Store.journaltype" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="leaveword" EntityType="CMSModel.Store.leaveword" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="resources" EntityType="CMSModel.Store.resources" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="users" EntityType="CMSModel.Store.users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="usertitle" EntityType="CMSModel.Store.usertitle" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_LEAVEWOR_REFERENCE_USERS" Association="CMSModel.Store.FK_LEAVEWOR_REFERENCE_USERS">
+            <End Role="users" EntitySet="users" />
+            <End Role="leaveword" EntitySet="leaveword" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="album">
+          <Key>
+            <PropertyRef Name="a_id" />
+          </Key>
+          <Property Name="a_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="u_id" Type="int" />
+          <Property Name="a_name" Type="varchar" MaxLength="45" />
+          <Property Name="a_public" Type="tinyint" />
+          <Property Name="a_delete" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="class">
+          <Key>
+            <PropertyRef Name="c_id" />
+          </Key>
+          <Property Name="c_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="i_id" Type="int" />
+          <Property Name="c_introduce" Type="text" />
+          <Property Name="c_counselor" Type="varchar" MaxLength="45" />
+          <Property Name="c_classname" Type="varchar" MaxLength="100" />
+          <Property Name="c_school" Type="varchar" MaxLength="45" />
+          <Property Name="c_college" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="images">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="c_id" Type="int" />
+          <Property Name="a_id" Type="int" />
+          <Property Name="j_id" Type="int" />
+          <Property Name="i_name" Type="varchar" MaxLength="45" />
+          <Property Name="i_url" Type="varchar" MaxLength="100" />
+          <Property Name="i_introduce" Type="text" />
+        </EntityType>
+        <EntityType Name="journal">
+          <Key>
+            <PropertyRef Name="j_id" />
+          </Key>
+          <Property Name="j_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="jt_id" Type="int" />
+          <Property Name="u_id" Type="int" />
+          <Property Name="j_title" Type="varchar" MaxLength="100" />
+          <Property Name="j_content" Type="text" />
+          <Property Name="j_date" Type="datetime" />
+          <Property Name="j_delete" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="journaltype">
+          <Key>
+            <PropertyRef Name="jt_id" />
+          </Key>
+          <Property Name="jt_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="jt_name" Type="varchar" MaxLength="45" />
+          <Property Name="jt_delete" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="leaveword">
+          <Key>
+            <PropertyRef Name="lw_id" />
+          </Key>
+          <Property Name="lw_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="u_id" Type="int" />
+          <Property Name="lw_contetn" Type="text" />
+          <Property Name="lw_time" Type="datetime" />
+          <Property Name="lw_read" Type="tinyint" />
+          <Property Name="lw_getperson" Type="int" />
+          <Property Name="lw_pid" Type="int" />
+        </EntityType>
+        <EntityType Name="resources">
+          <Key>
+            <PropertyRef Name="r_id" />
+          </Key>
+          <Property Name="r_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="u_id" Type="int" />
+          <Property Name="r_url" Type="varchar" MaxLength="100" />
+          <Property Name="r_date" Type="datetime" />
+          <Property Name="r_title" Type="varchar" MaxLength="100" />
+          <Property Name="r_introduce" Type="text" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="u_id" />
+          </Key>
+          <Property Name="u_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ut_id" Type="int" />
+          <Property Name="u_account" Type="varchar" MaxLength="45" />
+          <Property Name="u_password" Type="char" MaxLength="32" />
+          <Property Name="u_gender" Type="varchar" MaxLength="2" />
+          <Property Name="u_stucentid" Type="varchar" MaxLength="25" />
+          <Property Name="u_name" Type="varchar" MaxLength="45" />
+          <Property Name="u_political" Type="varchar" MaxLength="45" />
+          <Property Name="u_badroom" Type="varchar" MaxLength="25" />
+          <Property Name="u_phone" Type="varchar" MaxLength="25" />
+          <Property Name="u_qq" Type="varchar" MaxLength="25" />
+          <Property Name="u_birthday" Type="datetime" />
+          <Property Name="u_hometown" Type="varchar" MaxLength="55" />
+          <Property Name="u_nation" Type="varchar" MaxLength="45" />
+          <Property Name="u_lastlogintime" Type="datetime" />
+          <Property Name="u_lastloginip" Type="varchar" MaxLength="15" />
+          <Property Name="u_logintime" Type="int" />
+        </EntityType>
+        <EntityType Name="usertitle">
+          <Key>
+            <PropertyRef Name="ut_id" />
+          </Key>
+          <Property Name="ut_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ut_name" Type="varchar" MaxLength="45" />
+          <Property Name="ut_detele" Type="tinyint" />
+        </EntityType>
+        <Association Name="FK_LEAVEWOR_REFERENCE_USERS">
+          <End Role="users" Type="CMSModel.Store.users" Multiplicity="0..1" />
+          <End Role="leaveword" Type="CMSModel.Store.leaveword" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="leaveword">
+              <PropertyRef Name="u_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CMSModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CMSEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="album" EntityType="CMSModel.album" />
+          <EntitySet Name="class" EntityType="CMSModel.class" />
+          <EntitySet Name="images" EntityType="CMSModel.images" />
+          <EntitySet Name="journal" EntityType="CMSModel.journal" />
+          <EntitySet Name="journaltype" EntityType="CMSModel.journaltype" />
+          <EntitySet Name="leaveword" EntityType="CMSModel.leaveword" />
+          <EntitySet Name="resources" EntityType="CMSModel.resources" />
+          <EntitySet Name="users" EntityType="CMSModel.users" />
+          <EntitySet Name="usertitle" EntityType="CMSModel.usertitle" />
+          <AssociationSet Name="FK_LEAVEWOR_REFERENCE_USERS" Association="CMSModel.FK_LEAVEWOR_REFERENCE_USERS">
+            <End Role="users" EntitySet="users" />
+            <End Role="leaveword" EntitySet="leaveword" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="album">
+          <Key>
+            <PropertyRef Name="a_id" />
+          </Key>
+          <Property Name="a_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="u_id" Type="Int32" />
+          <Property Name="a_name" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="a_public" Type="Byte" />
+          <Property Name="a_delete" Type="Byte" />
+        </EntityType>
+        <EntityType Name="class">
+          <Key>
+            <PropertyRef Name="c_id" />
+          </Key>
+          <Property Name="c_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="i_id" Type="Int32" />
+          <Property Name="c_introduce" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="c_counselor" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="c_classname" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="c_school" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="c_college" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="images">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="c_id" Type="Int32" />
+          <Property Name="a_id" Type="Int32" />
+          <Property Name="j_id" Type="Int32" />
+          <Property Name="i_name" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="i_url" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="i_introduce" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="journal">
+          <Key>
+            <PropertyRef Name="j_id" />
+          </Key>
+          <Property Name="j_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="jt_id" Type="Int32" />
+          <Property Name="u_id" Type="Int32" />
+          <Property Name="j_title" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="j_content" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="j_date" Type="DateTime" Precision="3" />
+          <Property Name="j_delete" Type="Byte" />
+        </EntityType>
+        <EntityType Name="journaltype">
+          <Key>
+            <PropertyRef Name="jt_id" />
+          </Key>
+          <Property Name="jt_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="jt_name" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="jt_delete" Type="Byte" />
+        </EntityType>
+        <EntityType Name="leaveword">
+          <Key>
+            <PropertyRef Name="lw_id" />
+          </Key>
+          <Property Name="lw_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="u_id" Type="Int32" />
+          <Property Name="lw_contetn" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="lw_time" Type="DateTime" Precision="3" />
+          <Property Name="lw_read" Type="Byte" />
+          <Property Name="lw_getperson" Type="Int32" />
+          <Property Name="lw_pid" Type="Int32" />
+          <NavigationProperty Name="users" Relationship="CMSModel.FK_LEAVEWOR_REFERENCE_USERS" FromRole="leaveword" ToRole="users" />
+        </EntityType>
+        <EntityType Name="resources">
+          <Key>
+            <PropertyRef Name="r_id" />
+          </Key>
+          <Property Name="r_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="u_id" Type="Int32" />
+          <Property Name="r_url" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="r_date" Type="DateTime" Precision="3" />
+          <Property Name="r_title" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="r_introduce" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="u_id" />
+          </Key>
+          <Property Name="u_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ut_id" Type="Int32" />
+          <Property Name="u_account" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="u_password" Type="String" MaxLength="32" Unicode="false" FixedLength="true" />
+          <Property Name="u_gender" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="u_stucentid" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="u_name" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="u_political" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="u_badroom" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="u_phone" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="u_qq" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="u_birthday" Type="DateTime" Precision="3" />
+          <Property Name="u_hometown" Type="String" MaxLength="55" Unicode="false" FixedLength="false" />
+          <Property Name="u_nation" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="u_lastlogintime" Type="DateTime" Precision="3" />
+          <Property Name="u_lastloginip" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="u_logintime" Type="Int32" />
+          <NavigationProperty Name="leaveword" Relationship="CMSModel.FK_LEAVEWOR_REFERENCE_USERS" FromRole="users" ToRole="leaveword" />
+        </EntityType>
+        <EntityType Name="usertitle">
+          <Key>
+            <PropertyRef Name="ut_id" />
+          </Key>
+          <Property Name="ut_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ut_name" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="ut_detele" Type="Byte" />
+        </EntityType>
+        <Association Name="FK_LEAVEWOR_REFERENCE_USERS">
+          <End Role="users" Type="CMSModel.users" Multiplicity="0..1" />
+          <End Role="leaveword" Type="CMSModel.leaveword" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="leaveword">
+              <PropertyRef Name="u_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CMSModelStoreContainer" CdmEntityContainer="CMSEntities">
+          <EntitySetMapping Name="album">
+            <EntityTypeMapping TypeName="CMSModel.album">
+              <MappingFragment StoreEntitySet="album">
+                <ScalarProperty Name="a_id" ColumnName="a_id" />
+                <ScalarProperty Name="u_id" ColumnName="u_id" />
+                <ScalarProperty Name="a_name" ColumnName="a_name" />
+                <ScalarProperty Name="a_public" ColumnName="a_public" />
+                <ScalarProperty Name="a_delete" ColumnName="a_delete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="class">
+            <EntityTypeMapping TypeName="CMSModel.class">
+              <MappingFragment StoreEntitySet="class">
+                <ScalarProperty Name="c_id" ColumnName="c_id" />
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="c_introduce" ColumnName="c_introduce" />
+                <ScalarProperty Name="c_counselor" ColumnName="c_counselor" />
+                <ScalarProperty Name="c_classname" ColumnName="c_classname" />
+                <ScalarProperty Name="c_school" ColumnName="c_school" />
+                <ScalarProperty Name="c_college" ColumnName="c_college" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="images">
+            <EntityTypeMapping TypeName="CMSModel.images">
+              <MappingFragment StoreEntitySet="images">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="c_id" ColumnName="c_id" />
+                <ScalarProperty Name="a_id" ColumnName="a_id" />
+                <ScalarProperty Name="j_id" ColumnName="j_id" />
+                <ScalarProperty Name="i_name" ColumnName="i_name" />
+                <ScalarProperty Name="i_url" ColumnName="i_url" />
+                <ScalarProperty Name="i_introduce" ColumnName="i_introduce" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="journal">
+            <EntityTypeMapping TypeName="CMSModel.journal">
+              <MappingFragment StoreEntitySet="journal">
+                <ScalarProperty Name="j_id" ColumnName="j_id" />
+                <ScalarProperty Name="jt_id" ColumnName="jt_id" />
+                <ScalarProperty Name="u_id" ColumnName="u_id" />
+                <ScalarProperty Name="j_title" ColumnName="j_title" />
+                <ScalarProperty Name="j_content" ColumnName="j_content" />
+                <ScalarProperty Name="j_date" ColumnName="j_date" />
+                <ScalarProperty Name="j_delete" ColumnName="j_delete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="journaltype">
+            <EntityTypeMapping TypeName="CMSModel.journaltype">
+              <MappingFragment StoreEntitySet="journaltype">
+                <ScalarProperty Name="jt_id" ColumnName="jt_id" />
+                <ScalarProperty Name="jt_name" ColumnName="jt_name" />
+                <ScalarProperty Name="jt_delete" ColumnName="jt_delete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="leaveword">
+            <EntityTypeMapping TypeName="CMSModel.leaveword">
+              <MappingFragment StoreEntitySet="leaveword">
+                <ScalarProperty Name="lw_id" ColumnName="lw_id" />
+                <ScalarProperty Name="u_id" ColumnName="u_id" />
+                <ScalarProperty Name="lw_contetn" ColumnName="lw_contetn" />
+                <ScalarProperty Name="lw_time" ColumnName="lw_time" />
+                <ScalarProperty Name="lw_read" ColumnName="lw_read" />
+                <ScalarProperty Name="lw_getperson" ColumnName="lw_getperson" />
+                <ScalarProperty Name="lw_pid" ColumnName="lw_pid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="resources">
+            <EntityTypeMapping TypeName="CMSModel.resources">
+              <MappingFragment StoreEntitySet="resources">
+                <ScalarProperty Name="r_id" ColumnName="r_id" />
+                <ScalarProperty Name="u_id" ColumnName="u_id" />
+                <ScalarProperty Name="r_url" ColumnName="r_url" />
+                <ScalarProperty Name="r_date" ColumnName="r_date" />
+                <ScalarProperty Name="r_title" ColumnName="r_title" />
+                <ScalarProperty Name="r_introduce" ColumnName="r_introduce" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="CMSModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="u_id" ColumnName="u_id" />
+                <ScalarProperty Name="ut_id" ColumnName="ut_id" />
+                <ScalarProperty Name="u_account" ColumnName="u_account" />
+                <ScalarProperty Name="u_password" ColumnName="u_password" />
+                <ScalarProperty Name="u_gender" ColumnName="u_gender" />
+                <ScalarProperty Name="u_stucentid" ColumnName="u_stucentid" />
+                <ScalarProperty Name="u_name" ColumnName="u_name" />
+                <ScalarProperty Name="u_political" ColumnName="u_political" />
+                <ScalarProperty Name="u_badroom" ColumnName="u_badroom" />
+                <ScalarProperty Name="u_phone" ColumnName="u_phone" />
+                <ScalarProperty Name="u_qq" ColumnName="u_qq" />
+                <ScalarProperty Name="u_birthday" ColumnName="u_birthday" />
+                <ScalarProperty Name="u_hometown" ColumnName="u_hometown" />
+                <ScalarProperty Name="u_nation" ColumnName="u_nation" />
+                <ScalarProperty Name="u_lastlogintime" ColumnName="u_lastlogintime" />
+                <ScalarProperty Name="u_lastloginip" ColumnName="u_lastloginip" />
+                <ScalarProperty Name="u_logintime" ColumnName="u_logintime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usertitle">
+            <EntityTypeMapping TypeName="CMSModel.usertitle">
+              <MappingFragment StoreEntitySet="usertitle">
+                <ScalarProperty Name="ut_id" ColumnName="ut_id" />
+                <ScalarProperty Name="ut_name" ColumnName="ut_name" />
+                <ScalarProperty Name="ut_detele" ColumnName="ut_detele" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
